@@ -39,7 +39,7 @@ function mockChart({ defaults }) {
 describe('manageIndicator add — input application (#249)', () => {
   it('applies overrides and confirms them via read-back', async () => {
     const { _deps, state } = mockChart({ defaults: [{ id: 'length', value: 9 }, { id: 'source', value: 'close' }] });
-    const r = await manageIndicator({ action: 'add', indicator: 'Moving Average Exponential', inputs: JSON.stringify({ length: 99, source: 'open' }), _deps });
+    const r = await manageIndicator({ action: 'add', indicator: 'Exponential moving average', inputs: JSON.stringify({ length: 99, source: 'open' }), _deps });
     assert.equal(r.success, true);
     assert.equal(r.entity_id, 'study_1');
     assert.deepEqual(r.inputs.applied, { length: 99, source: 'open' });

@@ -17,7 +17,7 @@ You are performing technical analysis on a TradingView chart.
 
 Use `chart_manage_indicator` to add studies. Common names (must use FULL names):
 - "Relative Strength Index" (not RSI)
-- "Moving Average Exponential" (not EMA)
+- "Exponential moving average" (not EMA)
 - "Moving Average" (for SMA)
 - "MACD"
 - "Bollinger Bands"

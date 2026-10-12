@@ -120,7 +120,11 @@ export async function newTab({ layout, name } = {}) {
       const before = await evalIn(`document.querySelectorAll('.tabs-container .tab').length`);
       const clicked = await evalIn(`
         (function() {
-          var btn = document.querySelector('[class*="create-new-tab"]');
+          // Target the <button>: '[class*="create-new-tab"]' also matches its
+          // wrapper div (create-new-tab-button-container), which comes first in
+          // document order and ignores clicks (Desktop 3.4.1).
+          var btn = document.querySelector('button.create-new-tab-button')
+            || document.querySelector('button[aria-label="New tab"]');
           if (!btn) return false;
           btn.click();
           return true;
